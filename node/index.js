@@ -10,8 +10,11 @@ const config = {
 const mysql = require('mysql')
 
 const connection = mysql.createConnection(config)
-const sql = `INSERT INTO people(name) values('Wesley')`
-connection.query(sql)
+const createDB = `CREATE TABLE IF NOT EXISTS nodedb.people (id INT auto_increment NOT NULL,` +
+`name varchar(255) NULL,CONSTRAINT people_PK PRIMARY KEY (id));`;
+connection.query(createDB)
+const insertRow = `INSERT INTO nodedb.people(name) values('Wesley');`;
+connection.query(insertRow)
 connection.end()
 
 app.get('/', (req,res) => {

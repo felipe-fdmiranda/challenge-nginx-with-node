@@ -40,6 +40,5 @@ services:
 
 networks: 
   minharede:
-    driver: bridge  
-    external: true
-          
+    driver: bridge
+    
